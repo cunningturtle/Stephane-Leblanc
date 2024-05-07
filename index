@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+    <title>Stephane Leblanc</title>
+</head>
+
+<body>
+<section id="page0">
+  <h1>Bienvenue</h1>
+  <h2>Ceci est votre premier pas vers le progrès</h2>
+</section>
+
+  <section id="page1">
+    <div class="profil"> 
+      <h3>Mon profil</h3>
+      <p>Ancien employé d'Arcade, il est maintenant directeur d'une préstigieuse agence de développement personnel localisée à l'immeuble Veritas de la Défense
+      <br>Coordonées : 48.8914446,2.2456739</p>
+      <p>"Plus qu'une manière de vivre, réussir c'est aussi une manière d'être"</p>
+    </div>
+
+    <img class ="steph" src="imagesSte/stephane1.jpeg" alt="photo de stephane">
+  </section>
+
+<section id="page3">
+<h2>100% d'adhérents satisfaits</h2>
+<p>Faites dès aujourd'hui le premier pas vers votre transformation, en suivant mes quelques conseils.</p>
+<p class="lieu">48.8807532,2.2582417</p>
+</section>
+  
+<main>
+  <header>
+    <h2><span>Etre un vainqeur</span> en 4 étapes</h2>
+  </header>
+  <section>
+    <ul class='indexes'>
+      <li data-index='0'>01</li>
+      <li data-index='1'>02</li>
+      <li data-index='2'>03</li>
+      <li data-index='3'>04</li>
+    </ul>
+    <ul class='tabs'>
+      <li class='tab'>
+        <article class='tab-content'>
+          <h3>Arrêter d'être faible</h3>
+          <p>Notre monde veut nous tirer vers la faiblesse. Seuls les plus forts ne se laissent pas emporter par la folie de ce siècle de 
+            dégénérés corrompus. Ecoutez-moi ! En tant que rare n'ayant jamais cédé au lobies de manipulations, je sais que la première étape est de 
+            comprendre votre place dans le monde. La selection naturelle existe encore, les faibles n'ont pas leur place.</p>
+        </article>
+        <div class='tab-image'><img src='imagesSte/bureaubleu.png'></div>
+      </li>
+      <li class='tab'>
+        <article class='tab-content'>
+          <h3>Connaître les faiblesses de ses ennemis</h3>
+          <p>Pour dominer il faut écraser les autres, les compresés, les pressés comme des kiwis peu frais pour en laisser qu'un jus fade et moisi.
+             Je n'ai jamais hésité à écraser les autres et regardez où cela m'a mené. On m'a déjà attaqué de manière injuste, et dans mon dos en plus de cela. 
+             Je ne me suis pas laissé faire. Aujourd'hui personne n'ose se dresser contre moi.</p>
+          <a href="ParisNews.html" class="button"><button>Plus</button></a>
+        </article>
+        <div class='tab-image'><img src='imagesSte/bois.png'></div>
+      </li>
+      <li class='tab'>
+        <article class='tab-content'>
+          <h3>S'inspirer des meilleurs</h3>
+          <p>Afin de devenir la meilleure version de vous, vous devez avoir un model, un leader. Une personne qui vous poussera vers les hauteurs que vous méritez. Evitez les mauvaises ondes des autres, 
+            elles ne feront que vous corrompre.</p>
+        </article>
+        <div class='tab-image'><img src='imagesSte/brume.jpeg'></div>
+      </li>
+      <li class='tab'>
+        <article class='tab-content'>
+          <h3>Pour approfondir</h3>
+          <p>Vous sentez que ces conseils vous aident à y voir plus clair.
+          Sachez que personne ne vous comprendra mieux qu'une vraie communauté. Inscrivez vous dès maintenant et entamez votre chemin de réussite.</p>
+        <a href="cartebleu.html" class="button"><button>S'inscrire</button></a>
+        </article>
+        <div class='tab-image'><img src='imagesSte/fouleia.png'></div>
+      </li>
+    </ul>
+  </section>
+</main>
+</body>
+
+<script>
+const indexes = document.querySelectorAll('.indexes li');
+const tabs = document.querySelectorAll('.tab');
+const contents = document.querySelectorAll('.tab-content');
+
+function reset() {
+  for (let i = 0; i < tabs.length; i++) {
+    indexes[i].style.borderColor = 'transparent';
+    tabs[i].style.zIndex = 0;
+    tabs[i].classList.remove('active');
+    contents[i].classList.remove('active');
+  }
+}
+
+function showTab(i) {
+  indexes[i].style.borderColor = 'rgba(211,38,38,0.6)';
+  tabs[i].style.opacity = 1;
+  tabs[i].style.zIndex = 5;
+  tabs[i].classList.add('active');
+  contents[i].classList.add('active');
+}
+
+function activate(e) {
+  if (!e.target.matches('.indexes li')) return;
+  reset();
+  showTab(e.target.dataset.index);
+}
+
+const init = () => showTab(0);
+
+window.addEventListener('load',init,false);
+window.addEventListener('click',activate,false);
+</script>
+<style>:root {
+  --primary: rgb(211,38,38);
+  --overlay: rgba(211,38,38,0.6);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 160vh;
+  display: grid;
+  place-items: center;
+  background-color: black;
+  color: rgba(255,255,255,0.85);
+}
+
+#page0{font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+ text-align: center;}
+.steph{width:350px}
+
+#page1{display: flex; 
+  justify-content: center;
+  align-items: center;
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;}
+
+h1{color:rgba(211,38,38); 
+  font-size: 70px;
+  margin-top: 20%;}
+
+#page3{flex-direction: column;
+    display: flex;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    align-items: center}
+
+.profil{width:50%}
+
+.lieu{color: rgb(47, 47, 47)}
+
+main {
+  width: 600px;
+  height: 300px;
+  font: 0.9rem impact,sans-serif;
+
+  & header {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    margin-bottom: 2.25rem;
+    color: white;
+
+    & span {
+      color: var(--primary);
+    }
+  }
+
+  & section {
+    display: flex;
+    gap: 2rem;
+  }
+}
+
+.indexes, .tabs { list-style-type: none; }
+
+.indexes {
+  font-size: 1rem;
+
+  & li {
+    padding: 1rem;
+    border: 1px solid transparent;
+    cursor: pointer;
+  }
+}
+
+.tabs { position: relative; }
+
+.tab {
+  position: absolute;
+  display: flex;
+  width: 530px;
+  opacity: 0; 
+  background-color: black;
+  overflow: hidden;
+}
+
+.tab-content {
+  position: relative;
+  z-index: 5;
+  width: 300px;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+  opacity: 0;
+  transform: translateY(-5rem);
+
+  & h3 {
+    font-family: helvetica;
+    font-weight: 900;
+    font-size: 1rem;
+    border-bottom: 1.5px solid white;
+    padding-bottom: 1rem;
+  }
+
+  & p {
+    font-family: helvetica;
+    font-weight: 100;
+    line-height: 2;
+    color: rgba(255,255,255,0.7);
+  }
+
+  & button {
+    width: fit-content;
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+    font-size: 0.7rem;
+    padding: 0.75rem 1rem;
+    cursor: pointer;
+  }
+}
+
+@keyframes content {
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.tab-image {
+  position: absolute;
+  right: 1rem;
+  width: 200px;
+  height: 200px;
+  opacity: 0;
+  transform: translateX(2rem);
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: var(--overlay);
+    mix-blend-mode: multiply;
+  }
+
+  & img {
+    width: inherit;
+    height: inherit;
+    object-fit: cover;
+    filter: grayscale(100%);
+  }
+}
+
+@keyframes image {
+  100% {
+    opacity: 1;
+    width: 300px;
+    transform: translateX(0);
+  }
+}
+
+.active .tab          { opacity: 1; z-index: 5; }
+.active .tab-content  { animation: content 0.9s ease-out 0.4s forwards; }
+.active .tab-image    { animation: image 1s ease-out forwards; }
+
+</style>
